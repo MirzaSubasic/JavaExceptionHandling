@@ -38,12 +38,16 @@ public class uncheckedExceptions {
         catch (outOfBoundException e){}
     }
 
-    public void printArray() {
+    public String printArray() {
         int[] arr = getArray();
+        String printed = "Printed array:  ";
         System.out.print("Printed array:  ");
-        for (int i=0;i<=getLastIndex(); i++)
+        for (int i=0;i<=getLastIndex(); i++) {
             System.out.print(arr[i] + "  ");
+            printed += arr[i] + "  ";
+        }
         System.out.println();
+        return printed;
     }
 
     public void printAtIndex(int index) {
