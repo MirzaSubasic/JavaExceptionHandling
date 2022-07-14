@@ -50,16 +50,21 @@ public class uncheckedExceptions {
         return printed;
     }
 
-    public void printAtIndex(int index) {
+    public String printAtIndex(int index) {
+        String printIndex = "";
         try {
             if(index >= getMaxSize())
                 throw new outOfBoundException("Index is too large. Index out of bound exception is thrown");
+            if(index < 0)
+                throw new outOfBoundException("Index cant be negative. Index out of bound exception is thrown");
             else {
                 int[] arr = getArray();
                 int number = arr[index];
+                printIndex = "Number at index " + index + " is " + number;
                 System.out.println("Number at index " + index + " is " + number);
             }
         }
         catch (outOfBoundException e){}
+        return printIndex;
     }
 }
