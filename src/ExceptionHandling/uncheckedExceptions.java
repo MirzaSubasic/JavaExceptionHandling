@@ -29,13 +29,15 @@ public class uncheckedExceptions {
     public void arrayInput(int number) {
         try {
             if(getLastIndex()+1 >= getMaxSize())
-                throw new outOfBoundException("Array is full. Cant input " + number + " in array");
+                throw new outOfBoundException();
             else {
                 int[] arr= getArray();
                 arr[++lastIndex] = number;
             }
         }
-        catch (outOfBoundException e){}
+        catch (outOfBoundException e){
+            System.out.println("Array is full. Cant input " + number + " in array");
+        }
     }
 
     public String printArray() {
@@ -54,9 +56,9 @@ public class uncheckedExceptions {
         String printIndex = "";
         try {
             if(index >= getMaxSize())
-                throw new outOfBoundException("Index is too large. Index out of bound exception is thrown");
+                throw new outOfBoundException();
             if(index < 0)
-                throw new outOfBoundException("Index cant be negative. Index out of bound exception is thrown");
+                throw new outOfBoundException();
             else {
                 int[] arr = getArray();
                 int number = arr[index];
@@ -64,7 +66,9 @@ public class uncheckedExceptions {
                 System.out.println("Number at index " + index + " is " + number);
             }
         }
-        catch (outOfBoundException e){}
+        catch (outOfBoundException e){
+            System.out.println("Index out of bound exception is thrown. Index is negative or too large");
+        }
         return printIndex;
     }
 }
