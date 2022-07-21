@@ -27,17 +27,10 @@ public class Array {
     }
 
     public void arrayInput(int number) {
-        try {
-            if(getLastIndex()+1 >= getMaxSize())
-                throw new OutOfBoundException();
-            else {
-                int[] arr= getArray();
-                arr[++lastIndex] = number;
-            }
-        }
-        catch (OutOfBoundException e){
-            System.out.println("Array is full. Cant input " + number + " in array");
-        }
+        if(getLastIndex()+1 >= getMaxSize())
+            throw new OutOfBoundException();
+        int[] arr= getArray();
+        arr[++lastIndex] = number;
     }
 
     public String printArray() {
@@ -52,22 +45,15 @@ public class Array {
         return printed;
     }
 
+
     public String printAtIndex(int index) {
         String printIndex = "";
-        try {
-            if(index >= getMaxSize())
-                throw new OutOfBoundException();
-            if(index < 0)
-                throw new OutOfBoundException();
-            else {
-                int[] arr = getArray();
-                int number = arr[index];
-                printIndex = "Number at index " + index + " is " + number;
-                System.out.println("Number at index " + index + " is " + number);
-            }
-        }
-        catch (OutOfBoundException e){
-            System.out.println("Index out of bound exception is thrown. Index is negative or too large");
+        if(index >= getMaxSize() | index < 0)
+            throw new OutOfBoundException();
+        else {
+            int[] arr = getArray();
+            int number = arr[index];
+            printIndex = "Number at index " + index + " is " + number;
         }
         return printIndex;
     }

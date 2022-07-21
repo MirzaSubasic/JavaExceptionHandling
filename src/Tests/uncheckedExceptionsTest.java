@@ -1,7 +1,8 @@
 package Tests;
 
-import ExceptionHandling.outOfBoundException;
-import ExceptionHandling.uncheckedExceptions;
+import ExceptionHandling.Array;
+import ExceptionHandling.OutOfBoundException;
+import ExceptionHandling.StringToInt;
 import org.junit.Test;
 
 import java.util.logging.Logger;
@@ -16,7 +17,7 @@ public class uncheckedExceptionsTest {
     public void testArrayInputWithOneInput(){
         logger.info("Started tests");
         logger.info("Started tests for array input");
-        uncheckedExceptions test = new uncheckedExceptions(2);
+        Array test = new Array(2);
         test.arrayInput(5);
         String expected = "Printed array:  5  ";
         String actual = test.printArray();
@@ -25,7 +26,7 @@ public class uncheckedExceptionsTest {
 
     @Test
     public void testArrayInputWithMaxInputs(){
-        uncheckedExceptions test = new uncheckedExceptions(2);
+        Array test = new Array(2);
         test.arrayInput(5);
         test.arrayInput(10);
         String expected = "Printed array:  5  10  ";
@@ -35,16 +36,16 @@ public class uncheckedExceptionsTest {
 
     @Test
     public void testArrayInputWithException(){
-        uncheckedExceptions test = new uncheckedExceptions(2);
+        Array test = new Array(2);
         test.arrayInput(5);
         test.arrayInput(10);
-        Throwable exception = assertThrows(outOfBoundException.class, () -> test.arrayInput(15));
-        assertEquals("Array is full. Cant input 15 in array", exception.getMessage());
+        Throwable exception = assertThrows(OutOfBoundException.class, () -> test.arrayInput(15));
+        assertEquals(null, exception.getMessage());
     }
 
     @Test
     public void testArrayInputWithNoInput(){
-        uncheckedExceptions test = new uncheckedExceptions(2);
+        Array test = new Array(2);
         String expected = "Printed array:  ";
         String actual = test.printArray();
         assertEquals(expected, actual);
@@ -54,7 +55,7 @@ public class uncheckedExceptionsTest {
     @Test
     public void printFirstIndex(){
         logger.info("Started tests for printing at specific index");
-        uncheckedExceptions test = new uncheckedExceptions(2);
+        Array test = new Array(2);
         test.arrayInput(5);
         test.arrayInput(10);
         String expected = "Number at index 0 is 5";
@@ -64,7 +65,7 @@ public class uncheckedExceptionsTest {
 
     @Test
     public void printLastIndex(){
-        uncheckedExceptions test = new uncheckedExceptions(2);
+        Array test = new Array(2);
         test.arrayInput(5);
         test.arrayInput(10);
         String expected = "Number at index 1 is 10";
@@ -74,20 +75,20 @@ public class uncheckedExceptionsTest {
 
     @Test
     public void printNegativeIndex(){
-        uncheckedExceptions test = new uncheckedExceptions(2);
+        Array test = new Array(2);
         test.arrayInput(5);
         test.arrayInput(10);
-        Throwable exception = assertThrows(outOfBoundException.class, () -> test.printAtIndex(-1));
-        assertEquals("Index cant be negative. Index out of bound exception is thrown", exception.getMessage());
+        Throwable exception = assertThrows(OutOfBoundException.class, () -> test.printAtIndex(-1));
+        assertEquals(null, exception.getMessage());
     }
 
     @Test
     public void printLargeIndex(){
-        uncheckedExceptions test = new uncheckedExceptions(2);
+        Array test = new Array(2);
         test.arrayInput(5);
         test.arrayInput(10);
-        Throwable exception = assertThrows(outOfBoundException.class, () -> test.printAtIndex(10));
-        assertEquals("Index is too large. Index out of bound exception is thrown", exception.getMessage());
+        Throwable exception = assertThrows(OutOfBoundException.class, () -> test.printAtIndex(10));
+        assertEquals(null, exception.getMessage());
         logger.info("Finished tests for printing element ar specific index");
         logger.info("Finished tests");
     }
