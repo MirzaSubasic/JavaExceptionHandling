@@ -11,7 +11,7 @@ public class checkedException {
         return string;
     }
     public int StringToInteger(){
-        int num;
+        int num=0;
         Scanner scannerObject = new Scanner(System.in);
         System.out.println("input numbers from 0 to 10000");
         System.out.print("Input number: ");
@@ -26,9 +26,13 @@ public class checkedException {
             }
             num = Integer.parseInt(str);
             System.out.println("Input is correct");
-            return num;
         }
-        catch (invalidNumberException | largeNumberException e){}
-        return 0;
+        catch (invalidNumberException | largeNumberException e){
+            System.out.println("Try again");
+            System.out.print("Input number: ");
+            String str1 = setString(scannerObject.nextLine());
+            num = Integer.parseInt(str1);
+        }
+        return num;
     }
 }
