@@ -2,9 +2,9 @@ package ExceptionHandling;
 
 import java.util.Scanner;
 
-public class checkedException {
+public class StringToInt {
 
-    public checkedException() {
+    public StringToInt() {
     }
 
     public String setString(String string) {
@@ -19,15 +19,15 @@ public class checkedException {
         try {
             for (int i=0; i<str.length(); i++){
                 if(str.charAt(i)=='-' || str.charAt(i) < '0' || str.charAt(i) > '9')
-                    throw new invalidNumberException();
+                    throw new InvalidNumberException();
                 if(i>3){
-                    throw new largeNumberException();
+                    throw new LargeNumberException();
                 }
             }
             num = Integer.parseInt(str);
             System.out.println("Input is correct");
         }
-        catch (invalidNumberException | largeNumberException e){
+        catch (InvalidNumberException | LargeNumberException e){
             System.out.println("Try again");
             System.out.print("Input number: ");
             String str1 = setString(scannerObject.nextLine());

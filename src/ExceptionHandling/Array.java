@@ -4,11 +4,11 @@ package ExceptionHandling;
 *Unchecked - not checked at compile time, there is no syntax mistake
 * */
 
-public class uncheckedExceptions {
+public class Array {
     private int[] array;
     private int maxSize,lastIndex;
 
-    public uncheckedExceptions(int size){
+    public Array(int size){
         maxSize = size;
         array = new int[size];
         lastIndex = -1;
@@ -29,13 +29,13 @@ public class uncheckedExceptions {
     public void arrayInput(int number) {
         try {
             if(getLastIndex()+1 >= getMaxSize())
-                throw new outOfBoundException();
+                throw new OutOfBoundException();
             else {
                 int[] arr= getArray();
                 arr[++lastIndex] = number;
             }
         }
-        catch (outOfBoundException e){
+        catch (OutOfBoundException e){
             System.out.println("Array is full. Cant input " + number + " in array");
         }
     }
@@ -56,9 +56,9 @@ public class uncheckedExceptions {
         String printIndex = "";
         try {
             if(index >= getMaxSize())
-                throw new outOfBoundException();
+                throw new OutOfBoundException();
             if(index < 0)
-                throw new outOfBoundException();
+                throw new OutOfBoundException();
             else {
                 int[] arr = getArray();
                 int number = arr[index];
@@ -66,7 +66,7 @@ public class uncheckedExceptions {
                 System.out.println("Number at index " + index + " is " + number);
             }
         }
-        catch (outOfBoundException e){
+        catch (OutOfBoundException e){
             System.out.println("Index out of bound exception is thrown. Index is negative or too large");
         }
         return printIndex;
