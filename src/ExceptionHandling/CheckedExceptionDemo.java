@@ -1,6 +1,6 @@
 package ExceptionHandling;
 
-public class checkedExceptionDemo {
+public class CheckedExceptionDemo {
     public static void main(String[] args) {
         StringToInt checked = new StringToInt();
         String string = checked.stringInput();

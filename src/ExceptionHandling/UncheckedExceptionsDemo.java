@@ -1,6 +1,6 @@
 package ExceptionHandling;
 
-public class Demo {
+public class UncheckedExceptionsDemo {
     public static void main(String[] args) {
         Array unchecked = new Array(2);
 

@@ -2,16 +2,15 @@ package Tests;
 
 import ExceptionHandling.Array;
 import ExceptionHandling.OutOfBoundException;
-import ExceptionHandling.StringToInt;
 import org.junit.Test;
 
 import java.util.logging.Logger;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class uncheckedExceptionsTest {
+public class UncheckedExceptionsDemoTest {
 
-    static final Logger logger = Logger.getLogger(uncheckedExceptionsTest.class.getName());
+    static final Logger logger = Logger.getLogger(UncheckedExceptionsDemoTest.class.getName());
 
     @Test
     public void testArrayInputWithOneInput(){
