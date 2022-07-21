@@ -28,6 +28,7 @@ public class checkedException {
             System.out.println("Input is correct");
         }
         catch (invalidNumberException | largeNumberException e){
+            e.getMessage();
             System.out.println("Try again");
             System.out.print("Input number: ");
             String str1 = setString(scannerObject.nextLine());
